@@ -1,0 +1,86 @@
+:: StoryTitle
+тест
+
+
+:: StoryData
+{
+  "ifid": "84204CD4-962D-406B-8305-AF66B87BCE40",
+  "format": "Harlowe",
+  "format-version": "3.3.5",
+  "start": "light0",
+  "tag-colors": {
+    "startup": "purple"
+  },
+  "zoom": 1
+}
+
+
+:: \ light2 {"position":"350,575","size":"100,100"}
+Извини, но видимо у нас почти не осталось квантового времени! Эта квантовая молния не первая и, тем более, не последняя!
+Подставь мне лицо, чтобы я облизал его для квантового скачка
+
+[[подставить лицо|stars1]]
+[[убежать|end1]]
+
+
+
+:: end1 {"position":"100,500","size":"100,100"}
+(set: $isEndOpen to true)\
+\
+Происхдит новая вспышка. Ты очнулась дома у себя в квартире
+[[осмотреться|end2]]
+
+
+:: end2 {"position":"100,625","size":"100,100"}
+хаос
+
+[[конец игры|menu]]
+
+
+:: init [startup] {"position":"500,50","size":"100,100"}
+(set: $isLightOpen to true)
+(set: $isEndOpen to false)
+(set: $isStarsOpen to false)
+
+
+:: light0 {"position":"350,325","size":"100,100"}
+<div class="light">\
+ира сидит на лавочке и читает книгу, мерлин бегает рядом
+<div class="button">[[продолжить|light1]]</div>
+</div>
+
+
+:: light1 {"position":"350,450","size":"100,100"}
+Вдруг молния ударяет в дерево поблизости! Мерлин от испуга подскакивает и у него вырывается “<крик английского шпиона>”. Затем смотрит на ошалелую Иру и продолжает “В смысле, о привет, Ира! Удачно что ты тоже тут, я как раз подыскивал слова с которых начать разговор.”
+[[ааа, молния| light2]]
+[[ааа, говорящий мерлин| light2]]
+
+
+:: menu {"position":"325,150","size":"100,100"}
+Menu:
+(if: $isLightOpen)[[light0]]
+(if: $isEndOpen)[[end1]]
+(if: $isStarsOpen)[[stars1]]
+
+
+:: stars1 {"position":"575,300","size":"100,100"}
+(set: $isStarsOpen to true)\
+star wars
+происходит приключение
+[[конец игры|menu]]
+
+
+:: StoryStylesheet [stylesheet]
+.light {
+  background-color: pink;
+  background-image: url('https://yandex-images.clstorage.net/s9C8uG350/db3d628BJp0Q/bYREIMEIKmnDCZO5-W7n95tWSCEoU4jU7CNCqxp1MRyy31Zb_5_qgzbWE993L2S-m9XKU49g5WyW70k_IJMJ9WnB0GUleCo4h7k3eFmv5qNagnl1CcPIoXzjZC3dF2MvJUlU2ZiYXoYjBgbrds4QuP2x7eG7tJVYNX0oemZFzfBtRwVQZZgoGOcK48ubvbSBaSUJVZo0mmXphuRMj0dSDMTqNmjJOD1mUJYW2XLdQLlMZ7zCSib2mVQP6JqnZ-ziXWV2grW4WSgWmQDYSi50s5sUmDU6hgrFOuV1nt6GcDwmGFT7W2gNlQMk5dmyv7P4Lucfkwi1Zri3vnrph2Yt8N5XNKMmS9qph3kRyom85wAL57p2mhV4JujlNqyclACcxig1SZq4n8UhhlQZkR3w2X53D6Nr5vUJJp77mQb17TNt11QRZvubOKcoI3m4rBYAese7NXnHG2fqVHUtL0XR7YXYNwlIKFyXcnZUecKdUMgfBczSm-fH2AY-OlvlhEwzbqSEUYTI2JrX-EDJSm0lYTjkumf5VxpnC9TVzE2nU372-MfK6xsvBXHENujgTdCJzTW8glmFxcsFjevZ5Jfco-yUhRBlOMj4V3tzOrhshDMJVltHqdd6VTlXBr7sdHP8R8kVauubv5SxpqRLgG_iqi1kn2Op5pS7du6oa8eV3iBOtGYgd1qY27ebEslL_nUDuOVrp-hUqRUKtNdtjBfzTbf6V-iaiBx1EVRka_G8AQotNy-Sa3fHaiYOmKi3d54Cb6cnopaqqRgmSqCaS-yF88mUWSRZ52jWSecm3t-k8k_FCPXJGQn8lBOnF6iSv9JqnuXdYEo2JkqVnoi518Scwy4WB9KlOdtblQjAu7m-RzNZlJgHS2XaNijn148cReKvpzgH63o67WQjdSYIsM3SeR6n_JMKtAfJV3zoe-T2frHepqZBZIqJOHSqkuu6f5bTyUY4xLjX2LXJdDV-c');
+  height: 100vh;
+  margin: 0;
+  padding: 30px;
+}
+
+.button {
+  bacground-color: pink;
+  padding: 10px;
+  display: box;
+}
